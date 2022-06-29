@@ -1,0 +1,41 @@
+<?php
+
+use yii\helpers\Html;
+use yii\grid\GridView;
+
+/* @var $this yii\web\View */
+/* @var $searchModel common\models\search\InvoiceSearch */
+/* @var $dataProvider yii\data\ActiveDataProvider */
+
+$this->title = 'Order';
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="invoice-index" style="width: 100%;">
+
+    <h1><?= Html::encode($this->title) ?></h1>
+
+    <p>
+    </p>
+
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+
+            'id',
+            'fullname',
+            'address',
+            'phone',
+            'total',
+            'token',
+            'status',
+            'created_at',
+            //'notify',
+
+            ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); ?>
+</div>
